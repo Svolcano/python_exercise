@@ -1,6 +1,5 @@
 #!/usr/bin/python
 #encoding=utf-8
-
 import os
 import time
 import re
@@ -12,15 +11,16 @@ class FileCleaner():
 		self.fileLists=[]
 		self.sliceLists=[]
 		self.threads = [] 
-		self.db = myDB()
-		self.db.initDB('192.168.1.103','scw','112233','dirData')
-		self.sql = 'insert into delfiles(name,createtime) values'
-		
 
-	@staticmethod
-	def __visit(arg,dirname,names):
+	def visit(self,arg,dirname,names):
 		"callback function: clean files"
 		nowTime = time.time()
+		try:
+			conn = MySQLdb.connect(host='192.168.1.103',user='scw',passwd='112233',db='dirData')
+			cursor = conn.cursor()
+		except:
+			print 'insert conn Error.......'
+		tmpList = []
 		for f in names:
 			f = os.path.join(dirname,f)
 			if os.path.isfile(f):
@@ -28,10 +28,14 @@ class FileCleaner():
 				if nowTime - mtime >= arg[1]:
 					arg[0].append(f)
 					strTime = time.strftime('%Y%m%d%H%M%S')
-					sql = '(\'%s\',\'%s\'),'%(f,strTime)
-					FileCleaner.self.sql.append(sql)
-					print self.sql
-					
+					tmpList.append((f,strTime))
+		try:	
+			cursor.executemany('insert into delfiles(name,createtime) values(%s,%s)',tmpList)
+		except:
+			print 'insert execute error!.......'
+		cursor.close()
+		conn.close()
+
 
 	def getFileLists(self,filePath,cleanTime):
 		"filePath is the one you want to clean;clearTime's unit is day"
@@ -43,7 +47,7 @@ class FileCleaner():
 			return 
 		cleanSeconds = cleanTime * 3600 * 24
 		arg = (self.fileLists,cleanSeconds)
-		os.path.walk(filePath,FileCleaner.__visit,arg)
+		os.path.walk(filePath,self.visit,arg)
 
 	@staticmethod
 	def isNum(number):
@@ -56,10 +60,19 @@ class FileCleaner():
 
 	def cleaner(self,fsplit):
 		'delete slice of fileLists '
+		try:
+			conn = MySQLdb.connect(host='192.168.1.103',user='scw',passwd='112233',db='dirData')
+			cursor = conn.cursor()
+		except:
+			print "conn Error!........"
 		for f in fsplit:
 			#os.remove(f)
-			#print "*"*8 + f
-			pass
+			try:
+				print	cursor.execute('delete from delfiles where name=\'%s\'' % f)
+			except:
+				print "excute error!......."
+		cursor.close()
+		conn.close()
 
 	def splitFileLists(self):
 		'split fileList to 10 slices'
@@ -81,35 +94,18 @@ class FileCleaner():
 
 		for i in range(sliceCounter):
 			print 'thread %d begin..........'%i
-			self.threads[i].setDaemon(True)
+			self.threads[i].setDaemon(False)
 			self.threads[i].start()
+			#self.threads[i].join()
 			print 'thread %d end..........'%i
+
 		print 'all Thread over!',time.ctime()
-
-class myDB():
-	def __init__(self):
-		pass
-
-	def initDB(self,host,user,pwd,dbname):
-		self.conn = MySQLdb.connect(host=host,user=user,passwd=pwd,db=dbname)
-		self.cursor = self.conn.cursor()
-	
-	def myexec(self,sqlStr,param):
-		return self.cursor.execute(sqlStr,param)
-
-	def close():
-		self.conn.close()
 
 if __name__ == '__main__':
 	fh = open('log.txt','w+')
 	old = sys.stdout
 	sys.stdout = fh
 	fc = FileCleaner()
-	fc.getFileLists('/root',1.2)
+	fc.getFileLists('/root/workspace/',1.2)
 	fc.doClean()
 	sys.stdout = old
-
-	#db test
-
-	print 'done'
-
