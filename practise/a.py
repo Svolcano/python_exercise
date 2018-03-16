@@ -1,14 +1,8 @@
-import struct
-import socket
-import subprocess
+import logging
+def xx():
+    print("from a")
 
-def hel():
-    for i in range(10):
-        yield i
-    print('helo')
-    for j in ['a', 'b', 'c']:
-        yield j
 
-if __name__ == '__main__':
-    for k in hel():
-        print(k)
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s')
+logging.info('1232')
