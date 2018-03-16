@@ -5,6 +5,7 @@ import os
 import queue
 import threading
 import time
+import random
 
 home = 'D:\\luntuan_girls_thread\\'
 success_count = 0
@@ -79,7 +80,7 @@ def parse_one_thread(q, header):
 
 def get_all_link(url, header):
     global success_count
-    thread_num = 10
+    thread_num = 1
     all_img_num = 0
     req_obj = requests.get(url, headers=header)
     bs_obj = BeautifulSoup(req_obj.text, 'html.parser')
@@ -109,6 +110,9 @@ def get_all_link(url, header):
     for q in q_list:
         q.put("END")
 
+    for t in t_list:
+        t.join()
+
     logging.info("all done:should download: %d, success: %d", all_img_num, success_count)
 
 if __name__ == "__main__":
@@ -121,7 +125,7 @@ if __name__ == "__main__":
         {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36 OPR/38.0.2220.41"},
         {"User-Agent": "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0)"},
         {"User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1"},
-        {"User-Agent": "Googlebot/2.1 (+http://www.google.com/bot.html)"},
+        #{"User-Agent": "Googlebot/2.1 (+http://www.google.com/bot.html)"},
     ]
     try:
         if not os.path.exists(home):
@@ -130,6 +134,7 @@ if __name__ == "__main__":
         logging.error(e)
 
     for i in range(100):
+        header_t = header_list[random.randint(0, len(header_list)-1)]
         main_url = 'https://my.oschina.net/xxiaobian/blog/?sort=time&p=%d' % (i+1)
-        get_all_link(main_url, header)
+        get_all_link(main_url, header_t)
         time.sleep(2)
