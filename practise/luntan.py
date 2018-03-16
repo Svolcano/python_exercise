@@ -4,18 +4,23 @@ import logging
 import os
 import queue
 import threading
+import time
 
-home = 'D:\\luntuan_girls3\\'
+home = 'D:\\luntuan_girls_thread\\'
+success_count = 0
+count_lock = threading.Lock()
 
 
 def save_img(url):
     try:
-        global home
+        global home, success_count
         rsp = requests.get(url)
         name = url.split('/')[-1]
         full_path = "%s%s" % (home, name)
         with open(full_path, 'wb') as fh:
             fh.write(rsp.content)
+        with count_lock:
+            success_count += 1
     except Exception as e:
         logging.error(e)
 
@@ -69,10 +74,13 @@ def parse_one_thread(q, header):
             get_all_img(l)
         except Exception as e:
             logging.error("e:%s, url:%s", e, url)
+            time.sleep(5)
 
 
 def get_all_link(url, header):
-    thread_num = 3
+    global success_count
+    thread_num = 10
+    all_img_num = 0
     req_obj = requests.get(url, headers=header)
     bs_obj = BeautifulSoup(req_obj.text, 'html.parser')
     all_a = bs_obj.find_all('a', {'class':'blog-title'})
@@ -86,6 +94,7 @@ def get_all_link(url, header):
         t.start()
     index = 0
     for href in a_list:
+        all_img_num += 10
         q_list[index].put(href)
         index += 1
         index = index % 10
@@ -95,10 +104,12 @@ def get_all_link(url, header):
                     logging.info("%s dead", t.name)
                     old_index = t_list.index(t)
                     old_queue = q_list[old_index]
-                    new_t = threading.Thread(target=parse_one, args=(old_queue, header))
+                    new_t = threading.Thread(target=parse_one_thread, args=(old_queue, header))
                     t_list.insert(old_index, new_t)
     for q in q_list:
         q.put("END")
+
+    logging.info("all done:should download: %d, success: %d", all_img_num, success_count)
 
 if __name__ == "__main__":
     logging.basicConfig(filename='luntan.log', filemode='w', level=logging.DEBUG,
