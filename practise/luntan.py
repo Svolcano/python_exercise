@@ -73,6 +73,7 @@ def parse_one_thread(q, header):
             bs_obj = BeautifulSoup(req_obj.text, 'html.parser')
             l = all_girl_src_list(bs_obj)
             get_all_img(l)
+            time.sleep(0.5)
         except Exception as e:
             logging.error("e:%s, url:%s", e, url)
             time.sleep(5)
@@ -80,7 +81,7 @@ def parse_one_thread(q, header):
 
 def get_all_link(url, header):
     global success_count
-    thread_num = 1
+    thread_num = 2
     all_img_num = 0
     req_obj = requests.get(url, headers=header)
     bs_obj = BeautifulSoup(req_obj.text, 'html.parser')
@@ -98,7 +99,7 @@ def get_all_link(url, header):
         all_img_num += 10
         q_list[index].put(href)
         index += 1
-        index = index % 10
+        index = index % thread_num
         if index == 9:
             for t in t_list:
                 if not t.is_alive():
@@ -114,6 +115,7 @@ def get_all_link(url, header):
         t.join()
 
     logging.info("all done:should download: %d, success: %d", all_img_num, success_count)
+
 
 if __name__ == "__main__":
     logging.basicConfig(filename='luntan.log', filemode='w', level=logging.DEBUG,
