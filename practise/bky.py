@@ -20,7 +20,7 @@ def format_print(l):
 
 
 def parse(url):
-    #parse main url
+    # parse main url
     req_obj = requests.get(url)
     content = req_obj.text
     bs_obj = BeautifulSoup(content, 'html.parser')
@@ -37,6 +37,7 @@ def parse(url):
         lnk_list.append(t)
     format_print(lnk_list)
     return len(lnk_list)
+
 
 if __name__ == '__main__':
     log_f = "%(asctime)s-%(lineno)d-%(threadName)s-%(funcName)s-%(message)s"
