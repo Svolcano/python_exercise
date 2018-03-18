@@ -1,0 +1,83 @@
+<html>
+<head>
+<!--<title>Welcome</title>-->
+<title>Welcome </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Description" content="text/html">
+<script>
+top.uid = '';
+top.langx = 'en-us';
+top.today_gmt = '';
+top.hasLogin = '';
+top.iovationKey = 'EFBHCF';
+var iovationURL='http://sbc.ry00000.com/iovation/vindex.html?webProtocal=http&webDomain=www.hga025.com';
+var iovation_Proxy='http://sbc.ry00000.com';
+
+</script>
+<script language="javascript">
+document.cookie = "protocolstr="+location.protocol.replace(":","")+";path=/;"; 
+top.newWinObj=new Array();
+if(!!window.onunload){
+ window.onUnloadDWinObj=window.onunload;
+}else{
+ window.onUnloadDWinObj=function(){}
+}
+
+
+window.onunload=function(){
+ window.onUnloadDWinObj();
+ //for(var i=0;i<newWinObj.length;i++){
+ for(var i in newWinObj){
+  if(!newWinObj[i].closed){
+   newWinObj[i].window.close();
+  }
+ }
+}
+
+
+if(!!window.onbeforeunload){
+ window.onbeforeUnloadDWinObj=window.onbeforeunload;
+}else{
+ window.onbeforeUnloadDWinObj=function(){}
+}
+
+window.onbeforeunload=function(){
+ window.onbeforeUnloadDWinObj();
+ for(var i=0;i<newWinObj.length;i++){
+  if(!newWinObj[i].closed){
+   newWinObj[i].window.close();
+  }
+ }
+}
+
+window.onload=function(){
+ if(iovationURL!=''){
+		var p=document.location.protocol;
+		p=p.replace(":","")
+		iovation_Proxy=iovation_Proxy.replace("http","");
+		iovation_Proxy=iovation_Proxy.replace("https","");
+		iovationURL=p+iovation_Proxy+"/iovation/vindex.html?webProtocal="+p+"&webDomain="+document.domain;
+		document.getElementById("SI2_func").src=iovationURL;
+	}
+}
+top.blackbox='';
+window.getblackbox=function(bb){
+ top.blackbox=bb;
+}
+
+
+</script> 
+</head>
+
+
+
+<frameset rows="*,0,0" frameborder="NO" border="0" framespacing="0">
+<frame name="SI2_mem_index" src="app/member/">
+<frame id="SI2_func" name="SI2_func" scrolling="NO" noresize src="" >
+</frameset>
+<noframes>
+<body bgcolor="#FFFFFF" text="#000000">
+</body>
+</noframes>
+</html>
+
