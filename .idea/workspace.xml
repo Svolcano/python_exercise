@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22632b97-c8fd-4b7c-a8e1-78a3cfd61b3a" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/auto_login/demo.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/auto_login/demo2.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/auto_login/gtm.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/practise/bky.py" afterPath="$PROJECT_DIR$/practise/bky.py" />
     </list>
@@ -54,7 +51,7 @@
       <file leaf-file-name="demo2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/auto_login/demo2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
+            <state relative-caret-position="1139">
               <caret line="66" column="28" lean-forward="true" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -661,7 +658,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521260685384</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="you know i got the uid finally &#10;after two days learn &#10;&#10;should use phantomjs">
+      <created>1521369177494</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1521369177494</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -791,7 +795,8 @@
     <MESSAGE value="home pc test" />
     <MESSAGE value="spider" />
     <MESSAGE value="make luntan work , add sleep or will be block" />
-    <option name="LAST_COMMIT_MESSAGE" value="make luntan work , add sleep or will be block" />
+    <MESSAGE value="you know i got the uid finally &#10;after two days learn &#10;&#10;should use phantomjs" />
+    <option name="LAST_COMMIT_MESSAGE" value="you know i got the uid finally &#10;after two days learn &#10;&#10;should use phantomjs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1063,7 +1068,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/auto_login/demo2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
+        <state relative-caret-position="1139">
           <caret line="66" column="28" lean-forward="true" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
