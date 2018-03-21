@@ -34,7 +34,8 @@ def get_img_path():
 def tell_me_path():
     print('hel')
     img_paths = get_img_path()
-    return render_template('img.html',img_paths=img_paths)
+    return render_template('img.html', img_paths=img_paths)
+
 
 @app.route('/u/<username>')
 def get_user_name(username):
