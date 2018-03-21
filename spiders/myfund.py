@@ -9,7 +9,9 @@ from pylab import *
 
 def draw_lsjz(data):
     x, y = [], []
-    [x.append(i[0]) and y.append(float(i[1])) for i in data]
+    for i in data:
+        x.append(i[0])
+        y.append(float(i[1]))
     plot_date(x, y, 'r*')
     show()
 
