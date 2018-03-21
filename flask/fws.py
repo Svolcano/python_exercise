@@ -19,7 +19,7 @@ def hello(n):
 
 
 def get_img_path():
-    home= "static/image"
+    home = "static/image"
     all_path = []
     for root, dirs, files in os.walk(home):
         for f in files:
