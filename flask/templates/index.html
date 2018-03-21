@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a</title>
+</head>
+<body>
+<ol>
+{% for e in all_list %}
+    <li>
+        <div>
+            <h3>{{e['title']}}</h3>
+            <p><a href="{{e['link']}}">{{e['link']}}</a></p>
+            <p>{{e['summary']}}</p>
+        </div>
+    </li>
+{% endfor %}
+</ol>
+</body>
+</html>

@@ -6,19 +6,34 @@ from flask import redirect
 from flask import request
 from flask import abort
 from flask import flash
+from spiders.bky import get_log
+import os
 
 app = Flask(__name__)
 
 
-@app.route("/")
-def hello():
-    return Markup('<strong>Hello %s!</strong>') % '<blink>hacker</blink>'
+@app.route("/news/<int:n>")
+def hello(n):
+    all_list = get_log(1, n)
+    return render_template('index.html', all_list=all_list)
 
 
-@app.route('/hello')
-@app.route('/hello/<name>')
-def tell_me_path(name=None):
-    return render_template('hello.html', name=name)
+def get_img_path():
+    home= "static"
+    all_path = []
+    for root, dirs, files in os.walk(home):
+        for f in files:
+            np = os.path.join(root, f)
+            #np = url_for('tell_me_path', filename=np)
+            all_path.append(np)
+    print(all_path)
+    return all_path
+
+
+@app.route('/static/')
+def tell_me_path():
+    img_paths = get_img_path()
+    return render_template('img.html',img_paths=img_paths)
 
 @app.route('/u/<username>')
 def get_user_name(username):
