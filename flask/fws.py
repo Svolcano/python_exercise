@@ -19,19 +19,20 @@ def hello(n):
 
 
 def get_img_path():
-    home= "static"
+    home= "static/image"
     all_path = []
     for root, dirs, files in os.walk(home):
         for f in files:
-            np = os.path.join(root, f)
+            #np = os.path.join(root, f)
             #np = url_for('tell_me_path', filename=np)
-            all_path.append(np)
+            all_path.append(f)
     print(all_path)
     return all_path
 
 
-@app.route('/static/')
+@app.route('/img/')
 def tell_me_path():
+    print('hel')
     img_paths = get_img_path()
     return render_template('img.html',img_paths=img_paths)
 
