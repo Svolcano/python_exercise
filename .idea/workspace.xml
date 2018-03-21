@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22632b97-c8fd-4b7c-a8e1-78a3cfd61b3a" name="Default" comment="you know i got the uid finally &#10;after two days learn &#10;&#10;should use phantomjs">
-      <change beforePath="" afterPath="$PROJECT_DIR$/flask/templates/img.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/flask/templates/index.html" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/python_exercise.iml" afterPath="$PROJECT_DIR$/.idea/python_exercise.iml" />
+    <list default="true" id="22632b97-c8fd-4b7c-a8e1-78a3cfd61b3a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/flask/fws.py" afterPath="$PROJECT_DIR$/flask/fws.py" />
-      <change beforePath="$PROJECT_DIR$/practise/bky.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/practise/luntan.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/practise/myfund.py" afterPath="$PROJECT_DIR$/spiders/myfund.py" />
-      <change beforePath="$PROJECT_DIR$/spiders/bky.py" afterPath="$PROJECT_DIR$/spiders/bky.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -744,7 +735,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521443717561</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="flask show img">
+      <created>1521618589722</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1521618589722</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -876,7 +874,8 @@
     <MESSAGE value="you know i got the uid finally &#10;after two days learn &#10;&#10;should use phantomjs" />
     <MESSAGE value="update bky to newests" />
     <MESSAGE value="first flask web app" />
-    <option name="LAST_COMMIT_MESSAGE" value="first flask web app" />
+    <MESSAGE value="flask show img" />
+    <option name="LAST_COMMIT_MESSAGE" value="flask show img" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
