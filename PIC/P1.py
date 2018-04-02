@@ -3,7 +3,6 @@ import time
 from pylab import *
 
 
-
 def blend_two_images(img1_path, img2_path, img3_path='blend.png'):
     img_mode = 'RGBA'
     i1 = Image.open(img1_path)
@@ -63,8 +62,6 @@ def points(base_img, x, y, kuan, gao):
     print(c)
 
 
-
-
 def part_operate(p1, mask=None):
     base_img = Image.open(p1)
     target = Image.new('RGBA', base_img.size, (0, 0, 0, 0))
@@ -81,25 +78,32 @@ def part_operate(p1, mask=None):
     #base_img.paste(target, (0, 0), target)
     #base_img.filter(ImageFilter.BoxBlur(10))
     base_img.show()
-    name , suffix = p1.split('.')
+    name, suffix = p1.split('.')
     base_img.save("%s.%s" % (name+str(time.time()), suffix))
 
 
 def gs(p1, x=270, y=124, kuan=131, gao=64):
+    box = (x, y , x+kuan, y+gao)
     base_img = Image.open(p1)
     target = Image.new('RGBA', base_img.size, (0, 0, 0, 0))
     target.paste(base_img, (0, 0))
-    mask_img = Image.new('RGBA', (kuan, gao), (255, 255, 255, 0))
+
+    mask_img = base_img.crop(box)
+    print(mask_img.size)
+
     mask_img = mask_img.filter(ImageFilter.BoxBlur(20))
+    #mask_img.show()
     target.paste(mask_img, (x, y))
+
     target.show()
-    name , suffix = p1.split('.')
-    target.save("%s.%s" % (name+str(time.time()), suffix))
+    #name, suffix = p1.split('.')
+    #target.save("%s.%s" % (name+str(time.time()), suffix))
+
 
 def get_hit(p1):
     im = array(Image.open(p1))
     imshow(im)
-    print ('Please click 3 points')
+    print('Please click 3 points')
     x = ginput(3)
     print('you clicked:', x)
     show()
@@ -108,6 +112,7 @@ def get_hit(p1):
 if __name__ =='__main__':
     p1 = '2.png'
     p2 = '1.jpg'
+    p3 = '身份证背面.jpg'
     # blend_two_images(p1, p2, '3.jpg')
-    #gs(p1)
-    get_hit(p1)
+    gs(p3, 1434, 1825, 755, 82)
+    #get_hit(p1)
