@@ -1,5 +1,7 @@
 from PIL import Image, ImageFilter, ImageDraw
 import time
+from pylab import *
+
 
 
 def blend_two_images(img1_path, img2_path, img3_path='blend.png'):
@@ -83,10 +85,29 @@ def part_operate(p1, mask=None):
     base_img.save("%s.%s" % (name+str(time.time()), suffix))
 
 
+def gs(p1, x=270, y=124, kuan=131, gao=64):
+    base_img = Image.open(p1)
+    target = Image.new('RGBA', base_img.size, (0, 0, 0, 0))
+    target.paste(base_img, (0, 0))
+    mask_img = Image.new('RGBA', (kuan, gao), (255, 255, 255, 0))
+    mask_img = mask_img.filter(ImageFilter.BoxBlur(20))
+    target.paste(mask_img, (x, y))
+    target.show()
+    name , suffix = p1.split('.')
+    target.save("%s.%s" % (name+str(time.time()), suffix))
+
+def get_hit(p1):
+    im = array(Image.open(p1))
+    imshow(im)
+    print ('Please click 3 points')
+    x = ginput(3)
+    print('you clicked:', x)
+    show()
 
 
 if __name__ =='__main__':
     p1 = '2.png'
     p2 = '1.jpg'
     # blend_two_images(p1, p2, '3.jpg')
-    part_operate(p1)
+    #gs(p1)
+    get_hit(p1)

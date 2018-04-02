@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import time
 import re
 from selenium import webdriver
-from pylab import *
+import pylab as pl
 
 
 def draw_lsjz(data):
@@ -12,10 +12,16 @@ def draw_lsjz(data):
     for i in data:
         x.append(i[0])
         y.append(float(i[1]))
-    plot_date(x, y, 'r*')
-    show()
-
-
+    x.reverse()
+    y.reverse()
+    pl.xticks(rotation='vertical')
+    pl.plot_date(x, y, 'r-')
+    index = 0
+    xl = len(x)
+    while index < xl:
+        pl.axvline(x=x[index], ymin=0, ymax=1)
+        index += 1
+    pl.show()
 
 def draw_lines(data):
     '''
