@@ -114,5 +114,5 @@ if __name__ =='__main__':
     p2 = '1.jpg'
     p3 = '身份证背面.jpg'
     # blend_two_images(p1, p2, '3.jpg')
-    gs(p3, 1434, 1825, 755, 82)
-    #get_hit(p1)
+    #gs(p3, 1434, 1825, 755, 82)
+    get_hit(p1)
