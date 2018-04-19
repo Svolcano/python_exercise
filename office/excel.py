@@ -1,68 +1,36 @@
-import xlrd
-import xlwt
 import time
-from xlutils.copy import  copy
-from openpyxl import load_workbook, workbook
+from openpyxl import load_workbook, Workbook
+
+
+def get_name_phone(file_path, sheet_name, name_prefix, phone_refix):
+    result = {}
+    book = load_workbook(file_path, read_only=True)
+    sheet = book[sheet_name]
+    max_row = sheet.max_row
+    i = 2
+    while i < max_row:
+        name = sheet["%s%d" % (name_prefix, i)]
+        phone = sheet["%s%d" % (phone_refix, i)]
+        result[name] = phone
+        i += 1
+    book.close()
+    return result
 
 
 
-
-
-def write_excel():
-    b = xlwt.Workbook()
-    s1 = b.add_sheet('hello world')
-    n = 100
-    for i in range(1, n):
-        for j in range(1, n):
-            if j>=i:
-                s1.write(j, i, "%d*%d=%d" % (i, j, i*j))
-    b.save('demo.xls')
-
-
-def read_excel1(name_ph):
-    st = time.time()
-    b = xlrd.open_workbook('C:/Users/dd/Desktop/task/截至4月17日8点会员数据.xlsx')
-    et = time.time()
-    print("open file cost: %.3f" % (et - st))
-    s1 = b.sheet_by_index(0)
+def mix_save(target_file_name, src_file, src_sheet_name, name_phone):
+    target_book = Workbook(write_only=True)
+    src_file = load_workbook(src_file, read_only=True)
+    src_sheet = src_file[src_sheet_name]
+    max_row = src_sheet.max_row
+    max_column = src_sheet.max_column
     i = 1
-    name_col = 1
-    ph_col = 4
-    while i < s1.nrows:
-        name = s1.cell_value(i, name_col)
-        ph = s1.cell_value(i, ph_col)
-        name_ph[name] = ph
-        i += 1
-    print('read_excel1 done')
+    j = 1
+    for i in range(1, max_row+1):
+        for j in range(1, max_column+1):
 
 
-def read_ttt():
-    b = load_workbook('texcel.xlsx')
-    bs = b['Sheet1']
-    bnr = bs.max_row
-    i = 2
-    while i < bnr:
-        name = bs["B%d" % i].value
-        print(i, name)
-        bs['U%d' % i].value = 123
-        i += 1
-
-    b.save("texcel_done.xlsx")
-
-
-def read_excel2(name_ph):
-    b = load_workbook('C:/Users/dd/Desktop/task/回款/回款日志汇总.xlsx')
-    bs = b['Sheet1']
-    bnr = bs.max_row
-    i = 2
-    bs['U1'].value = '手机号'
-    while i < bnr:
-        name = bs["B%d" % i].value
-        ph = name_ph[name]
-        bs['U%d' % i].value = ph
-        i += 1
-
-    b.save('C:/Users/dd/Desktop/task/回款/回款日志汇总_done.xlsx')
+    target_book.save(target_file_name)
 
 
 if __name__ == "__main__":

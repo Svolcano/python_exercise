@@ -1,4 +1,4 @@
-from a2 import *
-hello()
-seta(100)
-hello()
+a = {'a':1}
+print(a['a'])
+b = a.get('aaa', '404')
+print(b)
