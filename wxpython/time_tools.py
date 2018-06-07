@@ -14,7 +14,8 @@ sys.path.append(module_path)
 from lib.MainFrame import MainFrame
 
 app = wx.App()
-win.Show(True)
+frm = MainFrame(None, title='time_tools', size=(400, 300))
+frm.Show()
 app.MainLoop()
 
 
