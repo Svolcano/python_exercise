@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22632b97-c8fd-4b7c-a8e1-78a3cfd61b3a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/python_exercise.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python_exercise.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wxpython/time_tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/wxpython/time_tools.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,65 +50,7 @@
     <favorites_list name="python_exercise" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="word.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/office/word.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="29" column="15" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="excel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/office/excel.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="time_tools.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wxpython/time_tools.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-              <folding>
-                <element signature="e#15#24#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainFrame.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wxpython/lib/MainFrame.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-              <folding>
-                <element signature="e#14#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ntpath.py" pinned="false" current-in-tab="false">
-        <entry file="file://F:/Python27/Lib/ntpath.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="482" column="8" selection-start-line="482" selection-start-column="8" selection-end-line="482" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -239,17 +178,6 @@
             <path>
               <item name="python_exercise" type="b2602c69:ProjectViewProjectNode" />
               <item name="python_exercise" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="python_exercise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="python_exercise" type="462c0819:PsiDirectoryNode" />
-              <item name="wxpython" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="python_exercise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="python_exercise" type="462c0819:PsiDirectoryNode" />
-              <item name="wxpython" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -673,16 +601,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49787235" weight="0.32896176" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.33510637" side_tool="true" weight="0.40153173" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49787235" weight="0.2761733" />
       <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.8111702" weight="0.4061372" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6648936" visible="true" weight="0.33224756" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6648936" weight="0.33224756" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49115044" weight="0.33333334" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14641288" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14641288" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" weight="0.35" />
@@ -690,35 +617,35 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4893617" weight="0.30526316" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" id="Data View" order="3" />
       <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32976446" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6648936" visible="true" weight="0.40191898" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18723404" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6648936" visible="true" weight="0.40191898" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Data View" order="4" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49787235" weight="0.32942432" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49787235" weight="0.32942432" />
-      <window_info anchor="right" id="Data View" order="4" />
+      <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.8111702" weight="0.25053304" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49115044" weight="0.335141" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.33510637" side_tool="true" visible="true" weight="0.40191898" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49787235" weight="0.32942432" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4893617" weight="0.45842218" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.8111702" weight="0.25053304" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -935,29 +862,12 @@
     <entry file="file://C:/Program Files/Python36/Lib/site-packages/docx/__init__.py" />
     <entry file="file://C:/Program Files/Python36/Lib/site-packages/docx/api.py" />
     <entry file="file://C:/Program Files/Python36/Lib/site-packages/docx/package.py" />
-    <entry file="file://$PROJECT_DIR$/office/word.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="29" column="15" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Program Files/Python36/Lib/site-packages/xlrd/sheet.py" />
     <entry file="file://C:/Program Files/Python36/Lib/site-packages/xlwt/Worksheet.py" />
     <entry file="file://C:/Program Files/Python36/Lib/site-packages/xlwt/Workbook.py" />
-    <entry file="file://F:/Python27/Lib/ntpath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="482" column="8" selection-start-line="482" selection-start-column="8" selection-end-line="482" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/office/excel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
+        <state relative-caret-position="22">
           <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
@@ -965,10 +875,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/office/word.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="29" column="15" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wxpython/time_tools.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#15#24#0" expanded="true" />
           </folding>
@@ -977,11 +897,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wxpython/lib/MainFrame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="660">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="e#14#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Python27/Lib/ntpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="482" column="8" selection-start-line="482" selection-start-column="8" selection-end-line="482" selection-end-column="8" />
         </state>
       </provider>
     </entry>
