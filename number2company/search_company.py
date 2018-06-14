@@ -1,18 +1,43 @@
 #coding:utf8
-
+#all use utf8 encoding
 import re
 import requests
 from bs4 import BeautifulSoup
 import csv
+import os
+import sys
+import logging
+from logging.handlers import RotatingFileHandler
 
-input_param = u'''
-051983987101	常州百树厨艺酒店用品有限公司		无法匹配
-051286178363	汇通金融数据服务有限公司		无法匹配
-051088703333	红星美凯龙颐达华瑞壁纸专卖店		无法匹配
-051486545809	江苏中海工业有限公司		无法匹配
-057187980169	美妍服饰		无法匹配
-'''
+def init_log(log_name=None):
+    formatter = logging.Formatter("%(message)s")
+    #filename, mode='a', maxBytes=0, backupCount=0, encoding=None
+    log_file_handler = RotatingFileHandler(log_name, maxBytes=10485760, backupCount=3)
+    log_file_handler.setFormatter(formatter)
+    log_file_handler.setLevel(logging.INFO)
+    logger = logging.getLogger(log_name)
+    logger.addHandler(log_file_handler)
+    logger.setLevel(logging.INFO)
 
+def toutf8(s, src_encoding=None):
+    """
+    :param s: input string
+    :param src_encoding: input string's encoding
+    :return: utf8 string
+    """
+    if src_encoding is None:
+        src_encoding = sys.getdefaultencoding()
+    if isinstance(s, unicode):
+        return s.encode(src_encoding)
+    else:
+        return s.decode(src_encoding).encode('utf8')
+
+g_company_suffix = [u'股份有限公司', u'有限公司', u'公司', u'集团',]
+g_company_suffix = [toutf8(i, 'gbk') for i in g_company_suffix]
+
+log_name = os.path.split(__file__)[1][:-3] + '.log'
+init_log(log_name)
+logger = logging.getLogger(log_name)
 
 def read_input(file_name):
     '''
@@ -20,31 +45,20 @@ def read_input(file_name):
     :return:
     '''
     input_obj = {}
+    csv_file_encoding = 'gbk'
     with open(file_name, 'r') as fh:
         csv_reader = csv.reader(fh)
         for row in csv_reader:
             tel = row[0]
             tel = tel.strip()
             tel = tel[:4] + '-' + tel[4:]
+            tel = toutf8(tel, csv_file_encoding)
             name = row[1].strip()
+            name = toutf8(name, csv_file_encoding)
             input_obj[tel] = name
     return input_obj
 
-
-def parse_param(i_str):
-    obj = {}
-    a = input_param.split('\n')
-    for i in a:
-        if i:
-            k, v = i.split('\t')[:2]
-            k = k.strip()
-            k = k[:4] + '-' + k[4:]
-            v = v.strip()
-            obj[k.strip()] = v.strip()
-    return obj
-
-
-def parse_level1_content(tag_obj):
+def parse_level1_content(tag_obj, encoding):
     header_tag = tag_obj.find('h3')
     title_tag = header_tag.find('a')
     tt = title_tag.text
@@ -52,12 +66,12 @@ def parse_level1_content(tag_obj):
     abstract_tag = tag_obj.find('div', {'class': 'c-abstract'})
     abstract_str = abstract_tag.text
     snap_tag = tag_obj.find('div', {'class': 'f13'}).find('a', {'data-click': True})
-    snap_url = snap_tag.attrs['href']
-    # print 'title', tt
-    # print 'abstrace', abstract_str
-    # print 'short_snap_url', snap_url
-    # print 'url', url
-    return tt, abstract_str, snap_url, url
+    snap_url = u''
+    if snap_tag:
+        snap_url = snap_tag.attrs['href']
+    ret = [tt, abstract_str, snap_url, url]
+    ret = [toutf8(i, encoding) for i in ret]
+    return ret
 
 
 def format_name(name):
@@ -65,8 +79,8 @@ def format_name(name):
     :param name:  input company name
     :return:
     '''
-    suffix = [u'股份有限公司', u'有限公司', u'公司', u'集团',]
-    for k in suffix:
+    global g_company_suffix
+    for k in g_company_suffix:
         if name.endswith(k):
             len_k = len(k)
             name = name[:-len_k]
@@ -95,8 +109,8 @@ def format_title(title):
     :param search result title:
     :return: comany name in title whick is before 公司
     '''
-    suffix = [u'公司', u'集团', ]
-    for k in suffix:
+    global g_company_suffix
+    for k in g_company_suffix:
         if k in title:
             fi = title.find(k)
             return title[:fi] + k
@@ -131,10 +145,12 @@ def deal_one(query_str, tel, name, query_header):
     result = False
     find_name = ''
     reponse = requests.get(query_str, headers=query_header)
-    content = reponse.text.encode(reponse.encoding).decode('utf8')
+    content = reponse.text.encode(reponse.encoding)
     p = BeautifulSoup(content, 'html.parser')
     all_node = p.find_all('div', {'class': "result c-container ", 'mu': False}, limit=1)
-    title, abstrace, short_snap_url, url = parse_level1_content(all_node[0])
+    if not all_node:
+        return False, "%s, %s, %s, %s" % ('can not find!', query_str, tel, name)
+    title, abstrace, short_snap_url, url = parse_level1_content(all_node[0], reponse.encoding)
     result, match_str = name_compared(name, title)
     if result:
         return result, match_str
@@ -149,8 +165,12 @@ def deal_one(query_str, tel, name, query_header):
     result, match_str = check_snap(short_snap_url, tel, name)
     if result:
         return result, match_str
-
     return result, title
+
+
+def ouput_to_file(out_file_name, data):
+    with open(out_file_name, 'w') as fh:
+        fh.writelines(data)
 
 
 def main(csv_file):
@@ -161,20 +181,25 @@ def main(csv_file):
     }
     query_engine = 'https://www.baidu.com/s?q2=%s&rn=5&tn=baiduadv'
     catch_count = 0
+    out_data = []
+    line_splitter = '-'*80
     for tel, name in format_param.items():
-        print "input : %s, %s" % (tel, name)
         qs = query_engine % tel
-        result, find_name = deal_one(qs, tel, name, query_header)
-        print result, find_name
+        try:
+            result, find_name = deal_one(qs, tel, name, query_header)
+        except Exception as e:
+            logger.error('Error, %s, %s, %s', qs, tel, e)
         if result:
             catch_count += 1
-        print "*" * 20
-    print catch_count
+        out_data.append("input: %s, %s \noutput: %s, %s\n%s\n" % (tel, name, result, find_name, line_splitter))
+    all_num = len(out_data)
+    out_data.append("total: %d, success: %d, success_pct:%.4f" % (all_num, catch_count, float(catch_count)/all_num))
+    ouput_to_file('a.txt', out_data)
 
 
 if __name__ =='__main__':
-
-    main('a.csv')
+    csv_filename = '60a.csv'
+    main(csv_filename)
 
 
 

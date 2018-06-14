@@ -42,7 +42,7 @@ def parse(req_obj, all_ids, h):
         }
         lnk_list.append(t)
     #logger.info(" len: %d, ids:%s", len(all_ids), all_ids)
-    #format_print(lnk_list)
+    format_print(lnk_list)
     return lnk_list
 
 def get_log(s, e):
@@ -101,8 +101,8 @@ if __name__ == '__main__':
                    }
         req_obj = requests.post(main_url, data=payload, headers=h)
         h = header_list[random.randint(0,3)]
-        s_num = parse(req_obj, all_ids, h)
-        all_num += s_num
+        a_list = parse(req_obj, all_ids, h)
+        all_num += len(a_list)
         time.sleep(1)
 
     logger.info(len(all_ids))
