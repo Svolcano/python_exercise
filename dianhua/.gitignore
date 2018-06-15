@@ -1,0 +1,9 @@
+dump.rdb
+image.png
+supervisord.pid
+venv/
+*.pyc
+*.swp
+*.DS_Store
+.idea/*
+log/*

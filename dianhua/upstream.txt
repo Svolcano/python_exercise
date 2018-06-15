@@ -1,0 +1,38 @@
+upstream crsapi {
+    server 172.18.21.197:8080 max_fails=3 fail_timeout=3s weight=1;
+    keepalive 32;
+}
+
+server {
+        listen 80;
+        listen 443 ssl;
+        ssl_certificate     /data/ops/app/tengine/keys/s.dianhua.cn.cer;
+        ssl_certificate_key /data/ops/app/tengine/keys/s.dianhua.cn.key;
+
+        server_name  crs-api.dianhua.cn crs-ui.dianhua.cn crs-ui-demo.dianhua.cn;
+        charset utf-8;
+        access_log  /var/log/nginx/crs-api.access.log  main;
+        add_header X-UA-Compatible IE=Edge;
+
+        proxy_redirect off;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Request-URL $request_uri;
+        proxy_intercept_errors on;
+
+        location / {
+                proxy_pass http://crsapi;
+        proxy_read_timeout 300;
+        }
+
+        root /var/www/html;
+        error_page  404  /error_pages/404.html;
+        error_page  403  /error_pages/403.html;
+        error_page  500 502 503 504 /error_pages/503.html;
+        location = /error_pages/403.html {
+                ssi on;
+                allow all;
+        }
+
+}

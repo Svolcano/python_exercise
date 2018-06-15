@@ -59,30 +59,10 @@ def daily_fun(arg_in):
         a = db.find(condition)
         b = a.count()
         return b
-    cmd = "http 127.0.0.1:18000/api/daily_report date==%s n==%s t==%s s==%s" % (arg, n, t, s)
+    cmd = "http 127.0.0.1:18000/api/daily_report date==%s n==%s t==%s s==%s channel==xinde" % (arg, n, t, s)
     a = subprocess.check_output(cmd)
     print arg, a, check_db(arg)
 
-def xd_daily_fun(arg_in):
-    arg, n, t, s = arg_in
-    def check_db_xd(arg):
-        db_host = '172.18.19.219'
-        db_port = 27017
-        db_name = 'crs'
-        db_collection = 'sid_info_data_rpt'
-        condition = {
-            'rpt_date' : '%s' % arg,
-            'crawler_channel' : 'xinde'
-        }
-
-        handler = pymongo.MongoClient(db_host, db_port)
-        db = handler[db_name][db_collection]
-        a = db.find(condition)
-        b = a.count()
-        return b
-    cmd = "http 127.0.0.1:18000/api/xd_daily_report date==%s n==%s t==%s s==%s" % (arg, n, t, s)
-    a = subprocess.check_output(cmd)
-    print arg, a, check_db_xd(arg)
 
 def check_db_list(arg):
         db_host = '172.18.19.219'
@@ -136,32 +116,28 @@ def gen_day(start, n, r):
 if __name__ == "__main__":
     multiprocessing.freeze_support()
     r = jq()
-    n = 3
-    a = list(gen_day('20180203', n, r))
-    print "dd---------------------------"
-    pool = multiprocessing.Pool(processes=4)
-    pool.map_async(daily_fun, a)
-    pool.close()
-    pool.join()
-    print "xd---------------------------"
-    pool = multiprocessing.Pool(processes=4)
-    pool.map_async(xd_daily_fun, a)
-    pool.close()
-    pool.join()
-    print "summary_detai---------------------------"
-    pool = multiprocessing.Pool(processes=4)
-    pool.map_async(summary_detail_fun, a)
-    pool.close()
-    pool.join()
-    print "summary_list---------------------------"
-    pool = multiprocessing.Pool(processes=4)
-    pool.map_async(summary_list_fun, a)
-    pool.close()
-    pool.join()
-    print "bill---------------------------"
-    pool = multiprocessing.Pool(processes=4)
-    pool.map_async(bill_static_report, a)
-    pool.close()
-    pool.join()
+    print r
+    # n = 4
+    # a = list(gen_day('20180201', n, r))
+    # print "dd---------------------------"
+    # pool = multiprocessing.Pool(processes=4)
+    # pool.map_async(daily_fun, a)
+    # pool.close()
+    # pool.join()
+    # print "summary_detai---------------------------"
+    # pool = multiprocessing.Pool(processes=4)
+    # pool.map_async(summary_detail_fun, a)
+    # pool.close()
+    # pool.join()
+    # print "summary_list---------------------------"
+    # pool = multiprocessing.Pool(processes=4)
+    # pool.map_async(summary_list_fun, a)
+    # pool.close()
+    # pool.join()
+    # print "bill---------------------------"
+    # pool = multiprocessing.Pool(processes=4)
+    # pool.map_async(bill_static_report, a)
+    # pool.close()
+    # pool.join()
 
-    print "main done"
+    # print "main done"

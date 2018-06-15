@@ -1,0 +1,284 @@
+帮秒爬 api 文档：
+
+1， 帮秒爬日报API
+/api/daily_report
+method:
+get
+input param:
+date 查询的日期 (必选)
+n nonce鉴权随机因子(必选)
+t time 鉴权时间因子(必选)
+s php后台计算的sign string(必选)
+example: 
+http 127.0.0.1:8000/api/daily_report date==20180101 n==1 t==2 s==3
+
+
+ouput：
+type： json string
+key： cid
+value：
+    authen_nums 授权成功量
+    authen_pct 授权成功率
+    bill_intact_nums    账单完整量
+    bill_loss_pct      详单缺失率
+    call_log_intact_nums    详单完整量
+    cid    客户id
+    date    输入参数date
+    crawl_nums  爬取成功量
+    crawl_pct   爬取成功率
+    final_nums  最终成功量
+    log_loss_pct    详单缺失率,
+    report_nums 报告生成量
+    report_pct  报告生成率
+    tel_num_diff    爬取成功相比昨天增减情况
+    tel_nums    爬取号码成功量
+    total_nums  尝试授权量
+example：
+{
+    "3": {
+        "authen_nums": 1,
+        "authen_pct": 1.0,
+        "bill_intact_nums": 0,
+        "bill_loss_pct": 1.0,
+        "call_log_intact_nums": 1,
+        "cid": "3",
+        "date": "20180101",
+        "crawl_nums": 1,
+        "crawl_pct": 1.0,
+        "final_nums": 1,
+        "log_loss_pct": 0.0,
+        "report_nums": 1,
+        "report_pct": 1.0,
+        "tel_num_diff": 0,
+        "tel_nums": 0,
+        "total_nums": 1
+    }
+}
+
+2， 信德日报API
+/api/xd_daily_report
+method:
+get
+input param:
+date 查询的日期 (必选)
+n nonce鉴权随机因子(必选)
+t time 鉴权时间因子(必选)
+s php后台计算的sign string(必选)
+example: 
+http 127.0.0.1:8000/api/xd_daily_report date==20180101 n==1 t==2 s==3
+
+
+ouput：
+type： json string
+key： cid
+value：
+    authen_nums 授权成功量
+    authen_pct 授权成功率
+    bill_intact_nums    账单完整量
+    bill_loss_pct      详单缺失率
+    call_log_intact_nums    详单完整量
+    cid    客户id
+    date    输入参数date
+    crawl_nums  爬取成功量
+    crawl_pct   爬取成功率
+    final_nums  最终成功量
+    log_loss_pct    详单缺失率,
+    report_nums 报告生成量
+    report_pct  报告生成率
+    tel_num_diff    爬取成功相比昨天增减情况
+    tel_nums    爬取号码成功量
+    total_nums  尝试授权量
+example：
+{
+    "3": {
+        "authen_nums": 1,
+        "authen_pct": 1.0,
+        "bill_intact_nums": 0,
+        "bill_loss_pct": 1.0,
+        "call_log_intact_nums": 1,
+        "cid": "3",
+        "date": "20180101",
+        "crawl_nums": 1,
+        "crawl_pct": 1.0,
+        "final_nums": 1,
+        "log_loss_pct": 0.0,
+        "report_nums": 1,
+        "report_pct": 1.0,
+        "tel_num_diff": 0,
+        "tel_nums": 0,
+        "total_nums": 1
+    }
+}
+3，帮秒爬统计API(list)
+/api/complex_report_summary
+method:
+post
+input param:
+start_date 查询开始日期 （可选）
+end_date 查询结束日期（可选）
+n nonce鉴权随机因子（必选）
+t time 鉴权时间因子（必选）
+s php后台计算的sign strin（必选）
+cids 查询的客户id （list）（可选）
+telecom    过滤条件运营商（可选）
+province    过滤条件省会（可选）
+crawler_channel     过滤条件爬虫渠道（可选）
+example: 
+http POST 127.0.0.1:8000/api/complex_report_summary start_date==20180205 end_date==20181001  cids==[3,4,5,6]  telecom=="联通" province=="北京" crawler_channel=="xinde" n==1 s==2 t==3
+output：
+type： json string
+key： cid string
+value：
+    authen_nums 授权成功量
+    authen_pct 授权成功率
+    bill_intact_nums    账单完整量
+    bill_loss_pct      详单缺失率
+    call_log_intact_nums    详单完整量
+    cid    客户id
+    date    详情日期（eg:20180101）
+    crawl_nums  爬取成功量
+    crawl_pct   爬取成功率
+    final_nums  最终成功量
+    log_loss_pct    详单缺失率,
+    report_nums 报告生成量
+    report_pct  报告生成率
+    total_nums  尝试授权量
+    tel_num  爬取成功号码量（去重）
+    pwd_rt_pct  密码重置成功率
+    pwd_rt_success  重置密码成功数
+    pwd_rt_total  重置密码数
+example：
+{
+    "3": {
+        "authen_nums": 1,
+        "authen_pct": 1.0,
+        "bill_intact_nums": 0,
+        "bill_loss_pct": 1.0,
+        "call_log_intact_nums": 1,
+        "cid": "3",
+        "crawl_nums": 1,
+        "crawl_pct": 1.0,
+        "final_nums": 1,
+        "log_loss_pct": 0.0,
+        "pwd_rt_pct": 0,
+        "pwd_rt_success": 0,
+        "pwd_rt_total": 0,
+        "report_nums": 0,
+        "report_pct": 0.0,
+        "tel_num": 0,
+        "total_nums": 1
+    }
+}
+
+4，帮秒爬统计API(detail)
+/api/complex_report_detail
+method:
+post
+input param:
+start_date 查询开始日期（可选）
+end_date 查询结束日期（可选）
+n nonce鉴权随机因子（必选）
+t time 鉴权时间因子（必选）
+s php后台计算的sign strin（必选）
+cids 查询的客户id （list）（可选）
+telecom    过滤条件运营商（可选）
+province    过滤条件省会（可选）
+crawler_channel     过滤条件爬虫渠道（可选）
+example: 
+http POST 127.0.0.1:8000/api/complex_report_detail start_date==20180205 end_date==20181001  cids==[3,4,5,6]  telecom=="联通" province=="北京" crawler_channel=="xinde" n==1 s==2 t==3
+output：
+type： json string
+key： date string
+value：
+    authen_nums 授权成功量
+    authen_pct 授权成功率
+    bill_intact_nums    账单完整量
+    bill_loss_pct      详单缺失率
+    call_log_intact_nums    详单完整量
+    cid    客户id
+    date    详情日期（eg:20180101）
+    crawl_nums  爬取成功量
+    crawl_pct   爬取成功率
+    final_nums  最终成功量
+    log_loss_pct    详单缺失率,
+    report_nums 报告生成量
+    report_pct  报告生成率
+    total_nums  尝试授权量
+    tel_num  爬取成功号码量（去重）
+    pwd_rt_pct  密码重置成功率
+    pwd_rt_success  重置密码成功数
+    pwd_rt_total  重置密码数
+example：
+{
+    "20180323": {
+        "authen_nums": 1,
+        "authen_pct": 1.0,
+        "bill_intact_nums": 0,
+        "bill_loss_pct": 1.0,
+        "call_log_intact_nums": 1,
+        "crawl_nums": 1,
+        "crawl_pct": 1.0,
+        "date": "20180323",
+        "final_nums": 1,
+        "log_loss_pct": 0.0,
+        "pwd_rt_pct": 0,
+        "pwd_rt_success": 0,
+        "pwd_rt_total": 0,
+        "report_nums": 0,
+        "report_pct": 0.0,
+        "tel_num": 0,
+        "total_nums": 1
+    }
+}
+5，邦秒爬财务对账单计费统计API
+/api/bill_static_report
+/api/xd_daily_report
+method:
+get
+input param:
+date 查询的日期（必选）
+n nonce鉴权随机因子（必选）
+t time 鉴权时间因子（必选）
+s php后台计算的sign string（必选）
+example: 
+http 127.0.0.1:8000/api/bill_static_report date==20180101 n==1 t==2 s==3
+
+ouput：
+type： json string
+key： cid
+value：
+    authen_nums 授权成功量
+    authen_pct 授权成功率
+    bill_intact_nums    账单完整量
+    bill_loss_pct      详单缺失率
+    call_log_intact_nums    详单完整量
+    cid    客户id
+    date    输入参数date
+    crawl_nums  爬取成功量
+    crawl_pct   爬取成功率
+    final_nums  最终成功量
+    log_loss_pct    详单缺失率,
+    report_nums 报告生成量
+    report_pct  报告生成率
+    total_nums  尝试授权量
+    new_tel_nums  参数日期相对于本月之前天产生的新的电话号码个数（去重）
+example：
+{
+    "3": {
+        "authen_nums": 8,
+        "authen_pct": 1.0,
+        "bill_intact_nums": 7,
+        "bill_loss_pct": 0.125,
+        "call_log_intact_nums": 6,
+        "cid": "3",
+        "date": "20180101",
+        "crawl_nums": 8,
+        "crawl_pct": 1.0,
+        "final_nums": 8,
+        "log_loss_pct": 0.25,
+        "new_tel_nums": 0,
+        "report_nums": 8,
+        "report_pct": 1.0,
+        "total_nums": 8
+    }
+}

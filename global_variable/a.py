@@ -1,13 +1,24 @@
-import global_module
-global_module.global_b = 2000
+#import threading
+import multiprocessing as threading
+class G():
+
+    a = 10
+
+def h():
+    print threading.current_process().name, G.a
+
 if __name__ == "__main__":
-    a = ((1,),(2,),(3,),(4,),(5,),(6,),)
-    b = [i[0] for i in a]
-    print(b)
+    print G.a
+    G.a = 200
+    t_list = []
+    for i in range(3):
+        t = threading.Process(target=h, )
+        t_list.append(t)
+    
+    for t in t_list:
+        t.start()
 
+    for t in t_list:
+        t.join()
 
-    print (type('ll'))
-    if isinstance('ll', str):
-        print (123)
-    else:
-        print (456)
+    print "done"

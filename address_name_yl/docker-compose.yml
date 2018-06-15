@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  api_server:
+    image: 127.0.0.1:5000/bqc/api_server
+    build:
+      context: .
+    networks:
+      - bqc_api_server
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10M"
+        max-file: "3"
+    deploy:
+      replicas: 8
+      update_config:
+        parallelism: 4
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+    command: ["python", "bqc_app2.py"]
+    ports:
+      - 8000:8000
+
+networks:
+  bqc_api_server:
