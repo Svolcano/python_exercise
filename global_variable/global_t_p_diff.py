@@ -1,18 +1,18 @@
-#import threading
-import multiprocessing as threading
+import threading
+#import multiprocessing as threading
 class G():
 
     a = 10
 
 def h():
-    print threading.current_process().name, G.a
+    print (threading.current_thread().name, G.a)
 
 if __name__ == "__main__":
-    print G.a
+    print( G.a)
     G.a = 200
     t_list = []
     for i in range(3):
-        t = threading.Process(target=h, )
+        t = threading.Thread(target=h, )
         t_list.append(t)
     
     for t in t_list:
@@ -21,4 +21,4 @@ if __name__ == "__main__":
     for t in t_list:
         t.join()
 
-    print "done"
+    print ("done")

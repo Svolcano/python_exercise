@@ -6,7 +6,7 @@ from flask import redirect
 from flask import request
 from flask import abort
 from flask import flash
-from spiders.bky import get_log
+from bky import get_log
 import os
 
 app = Flask(__name__)
@@ -19,12 +19,12 @@ def hello(n):
 
 
 def get_img_path():
-    home = "static/image"
+    home = f"{app.static_folder}/image"
+    print("***", home)
     all_path = []
     for root, dirs, files in os.walk(home):
+        print(root, dirs, files)
         for f in files:
-            #np = os.path.join(root, f)
-            #np = url_for('tell_me_path', filename=np)
             all_path.append(f)
     print(all_path)
     return all_path
@@ -53,4 +53,6 @@ def get_post_id(id):
 
 if __name__ == "__main__":
     app.secret_key = 'OTFQfbKrleM='
-    app.run(debug=True, host='0.0.0.0', port=80)
+    app.run(debug=True, host='0.0.0.0', port=8090)
+    
+    
