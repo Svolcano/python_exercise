@@ -28,5 +28,5 @@ def get_region_one(url):
 #             print(e, tel)
 
 url = 'http://apisi.dianhua.cn/resolvetel/?v=1&apikey=a9vXZcm5dnvimiNXyGNfLFwn37PdpyBB&uid=yulore_bqc&app=yulore_bqc&ver=1.0&tel=07303326021'
-#url = 'http://apisi.dianhua.cn/resolvetel/?v=1&apikey=a9vXZcm5dnvimiNXyGNfLFwn37PdpyBB&uid=yulore_bqc&app=yulore_bqc&ver=1.0&tel=07305641421'
+url = 'http://apisi.dianhua.cn/resolvetel/?v=1&apikey=a9vXZcm5dnvimiNXyGNfLFwn37PdpyBB&uid=yulore_bqc&app=yulore_bqc&ver=1.0&tel=07305641421'
 get_region_one(url)
