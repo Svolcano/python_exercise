@@ -26,7 +26,7 @@ def query(tel, secret='wdakfkadfa2ds', client_key='test1'):
     now_time_s = get_time()
     #print(now_time_s)
     ss = dict_sort(now_time_s, secret)
-    #print(ss)
+    print(ss)
     signature = get_sha1(ss)
     #print(signature)
     param = {
