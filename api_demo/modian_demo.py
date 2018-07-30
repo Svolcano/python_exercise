@@ -16,10 +16,10 @@ def get_sha1(a):
 
 
 def dict_sort(t, secret):
-    a = [t, secret]
-    a.sort()
-    return ''.join(a)
-
+    # a = [t, secret]
+    # a.sort()
+    # return ''.join(a)
+    return f'{secret}{t}'
 
 def query(tel, secret='wdakfkadfa2ds', client_key='test1'):
     url = 'https://pns-dev.dianhua.cn:8094/active/search'
