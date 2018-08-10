@@ -5,13 +5,13 @@ now = lambda:time.time()
 
 async def do_some_work(x):
     print("Waiting:", x)
-    await asyncio.sleep(2)
+    #await asyncio.sleep(2)
     return  "Done after {0}s{0}".format(x)
 
 
 async def do_other_work(xx):
     print("other work")
-    await asyncio.sleep(1)
+    # await asyncio.sleep(1)
     return "Done other work {0}".format(xx)
 
 def callback(future):

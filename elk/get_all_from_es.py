@@ -1,14 +1,20 @@
 from elasticsearch import Elasticsearch
 from elasticsearch import helpers
 
-es = Elasticsearch(config['es_server'])
-
-index_v="teacher-center-single_question_count"
-doc_type_v="single_question_count"
-
+hosts = ['172.18.52.171', '172.18.52.172','172.18.52.173' ,'172.18.52.174']
+es = Elasticsearch('172.18.52.171')
 query={"query" : {"match_all" : {}}}
-
-scanResp= helpers.scan(client= es, query=query, scroll= "10m", index= index_v , doc_type=doc_type_v , timeout="10m")
-
+scanResp= helpers.scan(client= es, query=query, scroll= "10m", timeout="10m")
+ts = set()
 for resp in scanResp:
-    qid = resp['_id']
+    try:
+        tels = resp['_source']['tels']
+        for t in tels:
+            ts.add(t)
+        if len(ts) == 1000000:
+            break
+    except:
+        pass
+ts = list(ts)
+with open("tel.txt", 'w') as wh:
+    wh.write('\n'.join(ts))
