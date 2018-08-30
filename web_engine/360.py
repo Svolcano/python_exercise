@@ -2,6 +2,7 @@ import requests
 import asyncio
 import aiohttp
 from lxml import etree
+import uuid
 
 
 
@@ -50,4 +51,32 @@ def main():
     loop = asyncio.get_event_loop()
     loop.run_until_complete(deal(loop))
 
-main()
+# main()
+import time
+def check(i):
+    uid = str(uuid.uuid4()).replace('-', '').lower()
+    url = 'https://www.so.com/s?q=hfghfgh&src=srp&fr=none&psid={uid}}'
+    headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:61.0) Gecko/20100101 Firefox/61.0",
+    "Accept": "*/*",
+    "Accept-Language": "zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2",
+    "Accept-Encoding": "gzip, deflate", 
+    "Cookie": f"QiHooGUID={str(uuid.uuid4()).replace('-', '').upper()}.{int(time.time())};",
+    }
+    a = requests.get(url, headers=headers)
+    t = a.text
+
+    if '系统检测到您操作过于频繁' in t:
+        print('block')
+        with open(f"{i}.html", 'w', encoding='utf8') as wh:
+            wh.write(t)
+    if '公司首页-项目网' in t:
+        print('ok')
+    else:
+        print('error')
+        with open(f"{i}.html", 'w', encoding='utf8') as wh:
+            wh.write(t)
+n=100
+while n:
+    check(n)
+    n -= 1

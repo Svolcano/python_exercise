@@ -5,14 +5,14 @@ import ujson
 host = '172.18.18.162'
 port = 6379
 
-rh = redis.Redis(host=host, port=port, db=1)
+rh = redis.Redis(host=host, port=port, db=6)
 
-all_keys = rh.keys('WE*')
+all_keys = rh.keys('*')
 res = []
 c = 1000
 for k in all_keys:
     v = rh.get(k)
-    res.append((k.decode(), ujson.loads(v)))
+    res.append((k.decode(), v.decode()))
     c -= 1
     print(c)
     if c == 0:

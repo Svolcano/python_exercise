@@ -1,15 +1,15 @@
 from elasticsearch import Elasticsearch
-es = Elasticsearch(host='172.18.52.176')
+from elasticsearch import helpers
+es = Elasticsearch(hosts=['172.18.52.171','172.18.52.172','172.18.52.173','172.18.52.174' ])
 query={
     "query" : 
     {
         "term" : 
             {
-            "tels":"02075512450"
+            "tels":"10086"
             }
     }
 }
-indices = es.indices
-dd = indices.get_mapping()
-for k, v in dd:
-    print(k, v)
+scanResp= helpers.scan(client= es, query=query, scroll= "10m", timeout="10m")
+for k in scanResp:
+    print(k)
