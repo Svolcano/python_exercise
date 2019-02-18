@@ -5,8 +5,10 @@
       <sourceFolder url="file://$MODULE_DIR$/global_variable" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/practise" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/db/mysql" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/spiders" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 2.7" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">
