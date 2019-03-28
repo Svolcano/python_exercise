@@ -1,3 +1,4 @@
+# encoding:utf-8
 # 快传号
 
 import requests
@@ -244,15 +245,14 @@ def format_post_params(s=''):
 
 def format_header(s=''):
     s = '''
-    Accept: application/json, text/plain, */*
+Accept: */*
 Accept-Encoding: gzip, deflate
 Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
-Cookie: quCapStyle=2; quCryptCode=D6TqMQxFspm09vZHFMpamzOTlfkI4qi1gODXB2r1mHfHBQ0TJhs6n%252F8%252BUMVW1IDG; Q=u%3D%25O0%25P1%25PN%25Q3%25O7%25R5%26n%3D%26le%3DZGR4AmxlAmDyAQOkpF5wo20%3D%26m%3DZGZ2WGWOWGWOWGWOWGWOWGWOBGt3%26qid%3D328784150%26im%3D1_t01386b81c31e58d8dd%26src%3Dpcw_so%26t%3D1; T=s%3D4b1494578cc44a45bb024cb5a1b07085%26t%3D1550149305%26lm%3D%26lf%3D2%26sk%3D07497f5df9395745e71d2c39b4db50d3%26mt%3D1550149305%26rc%3D%26v%3D2.0%26a%3D1; __guid=65234612.1205336357213016600.1550149305682.5251; test_cookie_enable=null
-Host: kuaichuan.360.cn
-Proxy-Connection: keep-alive
-Referer: http://kuaichuan.360.cn/
+Connection: keep-alive
+Cookie: RK=eEBRKn08Xo; ptcz=c66abc9bb09b6c463c30cd278e21eeaba9864c6fd2d4ed0f42b10b1f960f54ec; ad_play_index=11; roll_mod=1; ptag=roll_news_qq_com|; pgv_info=ssid=s6025626528; pgv_pvid=128820700; ts_refer=roll.news.qq.com/; ts_uid=5848306472; pac_uid=0_2f0b4fd4d964c; ts_last=news.qq.com/a/20190219/006123.htm
+Host: roll.news.qq.com
+Referer: http://roll.news.qq.com/
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36
-
     '''
     s = s.strip()
     ret = {}
@@ -277,3 +277,4 @@ if __name__ == "__main__":
     #     print('fff', e)
     #     KuaiChuan.close(s)
     format_header()
+
