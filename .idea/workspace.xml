@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22632b97-c8fd-4b7c-a8e1-78a3cfd61b3a" name="Default" comment="fixed">
-      <change afterPath="$PROJECT_DIR$/logic/outer_sort.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/play/aaa" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wxpython/wxeditor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/play/tmp.1.py" beforeDir="false" afterPath="$PROJECT_DIR$/play/tmp.1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask/bky.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask/bky.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spiders/kuaichuan.py" beforeDir="false" afterPath="$PROJECT_DIR$/spiders/kuaichuan.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -71,9 +68,9 @@
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -124,46 +121,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/play/tmp.1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1974">
+            <state relative-caret-position="721">
               <caret line="94" column="13" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wxpython/wxeditor.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="27" column="48" lean-forward="true" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
-              <folding>
-                <marker date="1553743265158" expanded="true" signature="39:40" ph="..." />
-                <marker date="1553743265158" expanded="true" signature="39:45" ph="..." />
-                <marker date="1553743265158" expanded="true" signature="476:1100" ph="..." />
-                <marker date="1553743265158" expanded="true" signature="1124:1151" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flask/bky.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-595" />
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flask/fws.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="147">
-              <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/flask/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-126" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -250,7 +232,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/auto_login/gtm.js" />
         <option value="$PROJECT_DIR$/auto_login/demo.py" />
         <option value="$PROJECT_DIR$/auto_login/demo2.py" />
         <option value="$PROJECT_DIR$/practise/rename_luantan_jpg.py" />
@@ -301,6 +282,7 @@
         <option value="$PROJECT_DIR$/logic/a.txt" />
         <option value="$PROJECT_DIR$/logic/sa.txt" />
         <option value="$PROJECT_DIR$/logic/outer_sort.py" />
+        <option value="$PROJECT_DIR$/flask/bky.py" />
       </list>
     </option>
   </component>
@@ -325,7 +307,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -338,10 +319,21 @@
               <item name="python_exercise" type="462c0819:PsiDirectoryNode" />
               <item name="flask" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="python_exercise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python_exercise" type="462c0819:PsiDirectoryNode" />
+              <item name="number2company" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="python_exercise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="python_exercise" type="462c0819:PsiDirectoryNode" />
+              <item name="office" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -790,7 +782,14 @@
       <option name="project" value="LOCAL" />
       <updated>1553741792974</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="fixed">
+      <created>1554786282213</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1554786282213</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -811,7 +810,7 @@
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15085287" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15245202" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1202,6 +1201,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/logic/outer_sort.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="70" column="25" selection-start-line="70" selection-start-column="25" selection-end-line="70" selection-end-column="25" />
+          <folding>
+            <marker date="1553771287679" expanded="true" signature="62:67" ph="..." />
+            <marker date="1553771287679" expanded="true" signature="550:2075" ph="..." />
+            <marker date="1553771287679" expanded="true" signature="1305:1496" ph="..." />
+            <marker date="1553771287679" expanded="true" signature="1326:1496" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/play/tmp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -1209,12 +1221,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/play/tmp.1.py">
+    <entry file="file://$PROJECT_DIR$/flask/fws.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1974">
-          <caret line="94" column="13" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="13" />
+        <state relative-caret-position="147">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/flask/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/609424610/wx/_core/Panel.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1237,38 +1252,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flask/bky.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flask/fws.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/flask/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logic/outer_sort.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="70" column="25" selection-start-line="70" selection-start-column="25" selection-end-line="70" selection-end-column="25" />
-          <folding>
-            <marker date="1553771287679" expanded="true" signature="62:67" ph="..." />
-            <marker date="1553771287679" expanded="true" signature="550:2075" ph="..." />
-            <marker date="1553771287679" expanded="true" signature="1305:1496" ph="..." />
-            <marker date="1553771287679" expanded="true" signature="1326:1496" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wxpython/wxeditor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="27" column="48" lean-forward="true" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
+        <state relative-caret-position="92">
+          <caret line="27" column="48" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
           <folding>
             <marker date="1553743265158" expanded="true" signature="39:40" ph="..." />
             <marker date="1553743265158" expanded="true" signature="39:45" ph="..." />
@@ -1276,6 +1263,18 @@
             <marker date="1553743265158" expanded="true" signature="1124:1151" ph="..." />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/play/tmp.1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="721">
+          <caret line="94" column="13" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flask/bky.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-595" />
       </provider>
     </entry>
   </component>
