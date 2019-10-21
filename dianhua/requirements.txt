@@ -73,7 +73,7 @@ ujson==1.33
 uWSGI==2.0.14
 w3lib==1.16.0
 wcwidth==0.1.7
-Werkzeug==0.11.11
+Werkzeug==0.15.3
 xlrd==1.1.0
 zope.interface==4.3.3
 tornado==5.0.2
