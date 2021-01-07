@@ -26,7 +26,7 @@ ipaddress==1.0.17
 #ipython-genutils==0.1.0
 itsdangerous==0.24
 Jinja2==2.8
-lxml==3.6.4
+lxml==4.6.2
 MarkupSafe==0.23
 meld3==1.0.2
 #mongolog==0.1.1
